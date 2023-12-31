@@ -1,1 +1,45 @@
+stages:
+  - install
+  - build
+  - test
+  - deploy
+
+cache:
+  paths:
+    - node_modules/
+
+install_dependencies:
+  stage: install
+  script:
+    - npm install
+  only:
+    - master
+
+build_project:
+  stage: build
+  script:
+    - npm run build
+  artifacts:
+    paths:
+      - build
+  only:
+    - master
+
+test_project:
+  stage: test
+  script:
+    - npm test
+  only:
+    - master
+
+deploy_to_production:
+  stage: deploy
+  script:
+    - echo "Deploying to production server"
+    # Add deployment scripts here
+  environment:
+    name: production
+    url: https://yourproductionurl.com
+  only:
+    - master
 
