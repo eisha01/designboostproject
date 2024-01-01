@@ -38,10 +38,11 @@ deploy_to_production:
   stage: deploy
   script:
     - npm install netlify-cli -g
-    - netlify deploy --prod --dir=build --auth=$NETLIFY_AUTH_TOKEN --site=$NETLIFY_SITE_ID
+    - netlify deploy --prod --dir=build --auth=$NETLIFY_AUTH_TOKEN
   environment:
     name: production
     url: https://designboostproject.com
   only:
     - master
+
 
