@@ -1,0 +1,48 @@
+image: node:latest
+
+stages:
+  - install
+  - build
+  - test
+  - deploy
+
+cache:
+  paths:
+    - node_modules/
+
+install_dependencies:
+  stage: install
+  script:
+    - npm install
+  only:
+    - master
+
+build_project:
+  stage: build
+  script:
+    - npm run build
+  artifacts:
+    paths:
+      - build
+  only:
+    - master
+
+test_project:
+  stage: test
+  script:
+    - npm test
+  only:
+    - master
+
+deploy_to_production:
+  stage: deploy
+  script:
+    - npm install netlify-cli -g
+    - netlify deploy --prod --dir=build --auth=$NETLIFY_AUTH_TOKEN
+  environment:
+    name: production
+    url: https://designboostproject.com
+  only:
+    - master
+
+
