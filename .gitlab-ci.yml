@@ -44,5 +44,3 @@ deploy_to_production:
     url: https://designboostproject.com
   only:
     - master
-
-

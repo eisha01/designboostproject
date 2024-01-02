@@ -1,19 +1,28 @@
-import express, { json } from 'express';
-import { connect, Schema, model } from 'mongoose';
-import cors from 'cors';
+const express = require('express');
+const mongoose = require('mongoose');
+const Schema = mongoose.Schema;
+const model = mongoose.model;
+const cors = require('cors');
 
 const app = express();
 const PORT = process.env.PORT || 3001;
 
 // Enable CORS
 app.use(cors());
-app.use(json());
+app.use(express.json());
 
 // Connect to MongoDB
-connect('mongodb://localhost:27017/designboost', {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-});
+mongoose
+  .connect('mongodb://localhost:27017/designboost', {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  })
+  .then(() => {
+    console.log('Connected to MongoDB');
+  })
+  .catch((err) => {
+    console.error('Error connecting to MongoDB:', err);
+  });
 
 // Define MongoDB schema and models here
 
