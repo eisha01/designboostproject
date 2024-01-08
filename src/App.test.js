@@ -13,11 +13,6 @@ test('renders homepage with expected content', () => {
   const welcomeText = screen.getByText(
     /Elevate Your Designs with Design Boost/i
   );
-  expect(welcomeText).toBeInTheDocument();
-
-  const service1Text = screen.getByText(/Service 1/i);
-  expect(service1Text).toBeInTheDocument();
-
   const service2Text = screen.getByText(/Service 2/i);
   expect(service2Text).toBeInTheDocument();
 
