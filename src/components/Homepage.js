@@ -181,9 +181,6 @@ const HomePage = () => {
               <IconButton size='large' marginLeft='20%'>
                 <ServiceIcon1 fontSize='inherit' marginLeft='37%' />
               </IconButton>
-              <Typography variant='h6' fontWeight={700} mb={2} marginLeft='37%'>
-                Service 1
-              </Typography>
               <Typography variant='body1' marginLeft='25%'>
                 Usability Score Analysis
               </Typography>
