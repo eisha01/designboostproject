@@ -27,12 +27,11 @@ const HomePage = () => {
           minHeight: '85vh',
           overflow: 'hidden',
           display: 'flex',
-          justifyContent: 'flex-start', // Align content to the left
+          justifyContent: 'flex-start',
           alignItems: 'center',
           background: 'linear-gradient(to bottom, #304352, #d7d2cc)',
         }}
       >
-        {/* Spark image on the top left corner */}
         <img
           src={sparkImage}
           alt='Spark Image'
@@ -75,7 +74,6 @@ const HomePage = () => {
           }}
         />
 
-        {/* First square box with 3D effect */}
         <Box
           sx={{
             width: '45%',
